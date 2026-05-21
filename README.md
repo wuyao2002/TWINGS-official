@@ -80,7 +80,7 @@ conda env create --file environment.yaml
 conda activate TWINGS
 ```
 
-## Install Submodules
+## Install submodules
 ```bash
 git submodule update --init --recursive 
 pip install ./submodules/simple-knn
