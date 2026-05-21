@@ -130,8 +130,8 @@ bash scripts/llff.sh
 bash scripts/mipnerf360.sh
 ```
 
-## Download
-You can download TWINGS rendered results for LLFF, DTU, and MipNeRF-360, along with TWINGS-Init, from this [link](https://drive.google.com/drive/folders/1p-Zyv71_PWIvOc-JosnD9aW6prQCFl1v?hl=ko).
+<!-- ## Download
+You can download TWINGS rendered results for LLFF, DTU, and MipNeRF-360, along with TWINGS-Init, from this [link](https://drive.google.com/drive/folders/1p-Zyv71_PWIvOc-JosnD9aW6prQCFl1v?hl=ko). -->
 
 ## Citation
 If you find our code or paper helps, please consider citing:
