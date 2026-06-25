@@ -1,3 +1,4 @@
 *.pyc
 .vscode
 logs/
+nerf_llff_data/

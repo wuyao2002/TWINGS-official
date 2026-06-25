@@ -17,8 +17,8 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
 def per_scene_triangulation(scenes, dataset_type, BASE_DIR, n_views, reproj_error_minimize, n_nearest_views, MIN_VIEWS_FOR_TRIANGULATION, CBPS_ratio, resize_target_long_side=512, selection_mode="nearest", random_seed=None, visualize_tracks=False):  
     metrics_by_scene = {}
-    model_name = "naver/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric"
-    mast3r_model = AsymmetricMASt3R.from_pretrained(model_name).to(device)
+    model_path = "/data0/anaconda3/wuyao/TWINGS-official/TWINGS-Init/checkpoints/MASt3R_ViTLarge_BaseDecoder_512_catmlpdpt_metric"
+    mast3r_model = AsymmetricMASt3R.from_pretrained(model_path).to(device)
     for scene in scenes:
         SCENE_DIR = os.path.join(BASE_DIR, scene)
         IMAGE_DIR = os.path.join(SCENE_DIR, "images")
@@ -257,13 +257,13 @@ def per_scene_triangulation(scenes, dataset_type, BASE_DIR, n_views, reproj_erro
         del all_tri_pts_3d, all_tri_colors, all_pts, all_colors
 
 def main():  
-    DATASET_ROOT = "/mai_nas/KHS/nerfs/data" # change this to your dataset root directory
+    DATASET_ROOT = "/data0/anaconda3/wuyao" # change this to your dataset root directory
     selection_mode = "nearest"  # "nearest" or "random"
     random_seed = 42
     reproj_error_minimize = True    
     visualize_tracks = False  
     
-    for dataset_type in ["nerf_llff_data", "DTU", "mipnerf360"]:
+    for dataset_type in [ "mipnerf360"]:#"nerf_llff_data", "DTU",
         print(f"[Start] {dataset_type}")
         # A larger CBPS_ratio gives higher accuracy but samples fewer 3D points; see Fig. 3 in the supplementary materials.
         if dataset_type == "nerf_llff_data":

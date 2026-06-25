@@ -1,7 +1,7 @@
-export CUDA_VISIBLE_DEVICES=1
+export CUDA_VISIBLE_DEVICES=2
 exp_name='outputs/nerf_llff_data/r8_3v'
 scenes=("fern" "flower" "fortress" "horns" "leaves" "orchids" "room" "trex")
-dataset_path='../nerfs/data/nerf_llff_data'
+dataset_path='/data0/anaconda3/wuyao/nerf_llff_data'
 n_views=3
 
 for scene in "${scenes[@]}"

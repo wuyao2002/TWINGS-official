@@ -15,8 +15,8 @@ def normalize_depth(depth):
 def estimate_depth_DA_v2(tensor):    
     np_arr = (tensor.permute(1, 2, 0).cpu().numpy() * 255).astype('uint8')
     image = Image.fromarray(np_arr)
-        
-    pipe = pipeline(task="depth-estimation", model="depth-anything/Depth-Anything-V2-Small-hf", device='cuda')
+    MODEL_PATH = "/data0/anaconda3/wuyao/TWINGS-official/TWINGS-Init/checkpoints/Depth-Anything-V2-Small-hf"    
+    pipe = pipeline(task="depth-estimation", model=MODEL_PATH, device='cuda', local_files_only=True)
     depth = pipe(image)["depth"]
 
     return np.array(depth)
